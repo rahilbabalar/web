@@ -1,11 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لیست پروژه‌ها</title>
+
+  <style>
+    body { font-family: sans-serif; padding: 20px; line-height: 1.8; }
+    h1 { margin: 0 0 8px; }
+    .desc { margin: 0 0 18px; opacity: 0.8; }
+    input { width: 100%; padding: 10px; margin: 10px 0 16px; }
+    .status { margin: 10px 0; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 6px 0; border-bottom: 1px solid #eee; }
+    a { text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .path { opacity: 0.7; font-size: 14px; }
+  </style>
 </head>
+
 <body>
-    
+  <h1>تمرین‌ها و فایل‌های HTML من</h1>
+  <p class="desc">همه فایل‌های html داخل ریپو (حتی داخل پوشه‌ها) اینجا لیست میشن.</p>
+
+  <input id="search" type="text" placeholder="جستجو... مثلا flex یا css یا 06-" />
+
+  <div class="status" id="status">درحال گرفتن لیست فایل‌ها...</div>
+
+  <ul id="list"></ul>
+
+  <script>
+    // تنظیمات ریپو
+    var OWNER = "rahilbabalar";
+    var REPO  = "web";
+    var BRANCH = "main";
+
+    var listEl = document.getElementById("list");
+    var statusEl = document.getElementById("status");
+    var searchEl = document.getElementById("search");
+
+    var allItems = []; // همه آیتم‌ها (فقط html)
+
+    function addItem(path) {
+      allItems.push(path);
+    }
+
+    function render(items) {
+      listEl.innerHTML = "";
+
+      if (items.length === 0) {
+        listEl.innerHTML = "<li>هیچ موردی پیدا نشد.</li>";
+        return;
+      }
+
+      for (var i = 0; i < items.length; i++) {
+        var p = items[i];
+
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+
+        // لینک نسبی داخل GitHub Pages
+        a.href = encodeURI(p);
+        a.textContent = p.split("/").pop();
+
+        var small = document.createElement("div");
+        small.className = "path";
+        small.textContent = p;
+
+        li.appendChild(a);
+        li.appendChild(small);
+        listEl.appendChild(li);
+      }
+    }
+
+    function filterList() {
+      var q = searchEl.value.toLowerCase();
+      var filtered = [];
+
+      for (var i = 0; i < allItems.length; i++) {
+        if (allItems[i].toLowerCase().indexOf(q) !== -1) {
+          filtered.push(allItems[i]);
+        }
+      }
+
+      render(filtered);
+    }
+
+    searchEl.addEventListener("keyup", filterList);
+
+    function fetchJson(url) {
+      return fetch(url).then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      });
+    }
+
+    function scanDir(path) {
+      var url = "https://api.github.com/repos/" + OWNER + "/" + REPO + "/contents/" + path + "?ref=" + BRANCH;
+
+      return fetchJson(url).then(function (data) {
+        var promises = [];
+
+        for (var i = 0; i < data.length; i++) {
+          var item = data[i];
+
+          if (item.type === "file") {
+            if (item.name.toLowerCase().endsWith(".html")) {
+              addItem(item.path);
+            }
+          } else if (item.type === "dir") {
+            // داخل پوشه هم میریم
+            promises.push(scanDir(item.path));
+          }
+        }
+
+        return Promise.all(promises);
+      });
+    }
+
+    // شروع از ریشه repo
+    scanDir("").then(function () {
+      allItems.sort();
+
+      statusEl.textContent = "تعداد فایل‌های html پیدا شده: " + allItems.length;
+      render(allItems);
+    }).catch(function (err) {
+      statusEl.textContent =
+        "نتونستم لیست رو بگیرم. احتمالاً محدودیت GitHub API یا مشکل اینترنت.\n" +
+        "خطا: " + err;
+
+      // راهنمایی: اگر زیاد رفرش میکنی ممکنه Rate limit بخوری.
+    });
+  </script>
 </body>
 </html>
