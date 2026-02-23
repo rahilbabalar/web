@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    a[href$=".com"]{
+        background-color: lightsalmon;
+    }     
+    a[href^="https://"]:hover::after{
+        content: url(./assets/image/apple-music.svg);
+    }
+    </style>
+</head>
+<body>
+    <h1>attribute selectors</h1>
+    <a href="https://www.google.com" target="_blank">Google</a>
+    <br>
+    <a href="https:www.pinterest.com" target="_blank">pinterest</a>
+    <br>
+    <a href="/03-about-us.html">About-us</a>
+</body>
+</html>

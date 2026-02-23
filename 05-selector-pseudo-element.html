@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p::first-letter{
+            font-size: large;
+            font-weight: 1000;
+            color: blueviolet;
+        }
+        p::before{
+            content: "before:"
+        }
+        h2:hover::after,
+        h3::after{
+            content: url(./assets/image/apple-music.svg);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>pseudo element selectors</h1>
+    <hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Fugit inventore voluptatum aperiam itaque praesentium!
+          Maxime aspernatur magni nostrum porro! Minima.</p>
+          <h2>Lorem ipsum dolor sit amet.</h2>
+          <h3>Lorem ipsum dolor sit amet.</h3>
+</body>
+</html>

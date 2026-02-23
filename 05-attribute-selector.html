@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a[target="_blank"]{
+            color: black;
+        }
+        
+        a[href^="https://"]{
+            color: blue;
+        }
+        a[href$=".com"]::after{
+            content: url(./assets/image/apple-music.svg);
+        }
+    </style>
+</head>
+<body>
+    <h1>attribute selector</h1>
+    <a href="https://www.google.com" target="_blank">google</a>
+    <a href="https://www.amazoun.com" target="_blank">amazoun</a>
+    <a href="https://www.pinterest.com" target="_blank">pintrest</a>
+    <a href="https://www.w3schools.com" target="_blank">w3schools</a>
+</body>
+</html>

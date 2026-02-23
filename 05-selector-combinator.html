@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            color: blue;
+        }
+        .parent p{
+            background-color: rgb(215, 242, 250);
+        }
+        .parent div{
+            color: crimson;
+        }
+        .parent ~p{
+            background-color: rgb(124, 175, 199);
+            color: blueviolet;
+        }
+        .parent +p{
+            color: royalblue;
+        }
+        .parent> p{
+            color: rgb(3, 84, 12);
+        }
+    </style>
+
+</head>
+<body>
+    <h1>combinator selector</h1>
+    <hr>
+    <div class="parent">
+        <p>Lorem ipsum dolor sit.</p>
+        <p>Hic placeat nisi laboriosam.</p>
+        <p>Consectetur dicta enim iure!</p>
+        <div>
+            <p>Lorem, ipsum dolor.</p>
+            <p>Commodi, at ea.</p>
+            <p>Perferendis, fugiat reprehenderit!</p>
+        </div>
+    </div>
+    <p>Lorem ipsum dolor sit.</p>
+    <p>Voluptatibus odio voluptatem corrupti.</p>
+    <p>Ut eaque temporibus repellat!</p>
+</body>
+</html>

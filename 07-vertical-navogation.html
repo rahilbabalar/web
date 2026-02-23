@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 25%;
+            background-color: black;
+            height: 100%;
+            position: fixed;
+            overflow: auto;
+
+        }
+        li a{
+text-decoration: none;
+display: block;
+color: white;
+padding: 8px 16px;
+        }
+        li a.active{
+            background-color: blueviolet;
+        }
+        li a:hover:not(.active){
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">Add product</a></li>
+        <li><a class="active" href="#">settings</a></li>
+        <li><a href="#">Manage User</a></li>
+        <li><a href="#">Theme</a></li>
+    </ul>
+</body>
+</html>

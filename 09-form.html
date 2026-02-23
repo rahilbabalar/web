@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form-lable{
+            display: block;
+        }
+        .mb-0{
+margin-bottom: 0.25rem;
+        }
+         .mb-1{
+            margin-bottom: 0.5rem;
+        }
+         .mb-2{
+            margin-bottom: 1rem;
+        }
+         .mb-3{
+             margin-bottom: 1.5rem;
+        }
+         .mb-4{
+             margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form</h1>
+    <hr>
+    <form action="./03-about-us.html" method="" target="_blank" autocomplete="off"> 
+        <fieldset>
+            <legend>Login</legend>
+            <div class="mb-2">
+<label for="userName" class="form-lable">userName</label>
+<input id="userName" name="Username" type="text">
+    </div>
+    <div class="mb-2">
+        <label for="password" class="form-lable">password</label>
+        <input type="password" name="Password">
+    </div>
+    <div class="mb-2">
+        <label for="rememberMe" class="checkbox">Remember me on next login</label>
+        <input type="checkbox" name="Rememberme" id="rememberMe">
+    </div>
+    <div class="mb-2" >
+<div class="mb-1">
+    <input type="radio" id="female" name="Gender" value="Female">
+    <label for="female">Female</label>
+    <div class="mb-1">
+    <input type="radio" id="male" name="Gender" value="Male">
+    <label for="male">Male</label>
+</div>
+<div class="mb-2">
+<select name="city" id="city">
+    <option value="Tehran">تهران</option>
+     <option  selected  value="kermanshah">کرمانشاه</option>
+      <option value="mashhad">مشهد</option>
+</select>
+</div>
+<div class="mb-2">
+    <textarea name="" id="" cols="12"></textarea>
+</div>
+    </div>
+    <div class="mb-2">Email <input type="email"></div>
+    <div class="mb-4">
+        <input type="submit">
+        <input type="button" value="type button">
+        <input type="reset">
+        <button>tag</button>
+    </div>
+        </fieldset>
+    </form>
+  
+    
+</body>
+</html>

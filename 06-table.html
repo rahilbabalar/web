@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        thead tr{
+            background-color: lightslategray;
+        }
+        tbody tr:nth-child(odd){
+            background-color: aquamarine;
+            
+        }
+        tbody tr:nth-child(even){
+            background-color: chartreuse;
+        }
+        tfoot tr{
+            background-color: lightpink;
+        }
+        tbody tr:hover{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Table</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Row</th>
+            <th>First name </th>
+            <th>Last name </th>
+            <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>1</th>
+            <th>Rahil </th>
+            <th>Babalar </th>
+            <th>22</th>
+        </tr>
+        
+        <tr>
+            <th>2</th>
+            <th>Narges</th>
+            <th>Babalar </th>
+            <th>22</th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>Sepide </th>
+            <th>Babalar</th>
+            <th>20</th>
+                    </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos placeat nisi dolore quas ut maiores, debitis corrupti excepturi facilis, fugit asperiores rem vel distinctio nemo? Unde, obcaecati. Non, eligendi vero soluta ad voluptas doloremque commodi impedit quis? Nihil, sint? Vitae quos nam non beatae aliquid dolorum eum quibusdam ullam in neque officia suscipit assumenda, consequatur quo possimus cum quasi maxime. Vero recusandae accusamus alias nesciunt impedit repellendus voluptatem maiores facere expedita eveniet doloribus natus ut inventore, mollitia minima nihil ipsa nulla labore consequatur illo odio doloremque velit perspiciatis. Saepe sunt debitis possimus doloremque ab incidunt dolores hic, quo id rem.</td>
+        </tfoot>
+    </table>
+</body>
+</html>
